@@ -190,7 +190,7 @@ ax3.set_zlabel('city-mpg')
 
 ax3_2.set_xlabel('length')
 ax3_2.set_ylabel('width')
-ax3_2.set_zlabel('city-mpg')
+ax3_2.set_zlabel('probability')
 
 X,Y=np.meshgrid(x,x2)
 positions = np.vstack([X.ravel(), Y.ravel()])
@@ -201,9 +201,8 @@ Z=kernel3(positions)
 Z=np.reshape(Z,X.shape)
 
 ax3.scatter3D(df['length'], df['width'], df['city-mpg'])
-ax3.contour(X,Y,Z,cmap='RdGy')
+ax3.contour(X,Y,Z,cmap='viridis')
 
-ax3_2.plot_surface(X,Y,Z,cmap='RdGy')
-
+ax3_2.plot_surface(X,Y,Z,cmap='viridis')
 
 plt.show()
